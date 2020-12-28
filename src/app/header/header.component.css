@@ -1,0 +1,20 @@
+:root {
+	--black: #666;
+	--blue: #429fd7;
+	--green: #5dbb46;
+	--orange: #f26722;
+	--pink: #da2368;
+	--white: #fefefe;
+}
+.we{
+    color: var(--pink)
+}
+.can{
+    color:var(--green)
+}
+.debug{
+    color:var(--blue)
+}
+.it{
+    color:var(--orange)
+}

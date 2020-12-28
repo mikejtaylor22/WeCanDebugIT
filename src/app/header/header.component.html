@@ -1,0 +1,19 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div><a routerLink="" class="navbar-brand"><span class="we">We</span><span class="can">Can</span><span class="debug">{{debug}}</span><span class="it">IT!</span></a></div>
+
+        <ul class="navbar-nav">
+           
+            <li *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="mybugs" class="nav-link">My Bugs</a></li>
+            <li *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="allbugs" class="nav-link">All Bugs</a></li>
+            <li *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="newbug" class="nav-link text-warning" >Create New Bug</a></li>
+            
+        </ul>
+
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+            
+            <li *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="" class="nav-link">Login</a></li>
+            <li *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="logout" class="nav-link">Logout</a></li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,27 @@
+<h1>All Bugs</h1>
+<span class="alert alert-success" *ngIf="deleteMessage">{{deleteMessage}}</span>
+<div class="container">
+<table class="table">
+    
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Bug ID#</th>
+            <th>Open/Closed</th>
+            <th>Date</th>
+            <th>User</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bug of bugs">
+            <td>{{bug.subject}}</td>
+            <td>{{bug.id}}</td>
+            <td>{{bug.status}}</td>
+            <td>{{bug.date | date}}</td>
+            <td>{{bug.username}}</td>
+            <td><button class="btn btn-warning" (click)="deleteBug(bug.username,bug.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,10 @@
+h1{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.container{
+    display: flex;
+    margin: 2rem auto;
+    padding: 11px;
+}

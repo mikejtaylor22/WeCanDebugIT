@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "WeCanDebugIt"
+    }
+  },
+  "defaultProject": "WeCanDebugIt",
+  "cli": {
+    "analytics": false
+  }
 }
