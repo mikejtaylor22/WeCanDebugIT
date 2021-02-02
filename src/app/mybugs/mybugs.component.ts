@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {BugService} from '../service/bug.service';
 
 export class Bug{
@@ -23,7 +24,7 @@ export class MybugsComponent implements OnInit {
   username='mike'
   deleteMessage: string;
 
-  constructor(private bugService: BugService) { }
+  constructor(private bugService: BugService, private router:Router) { }
 
   ngOnInit(): void {
 
@@ -35,7 +36,7 @@ export class MybugsComponent implements OnInit {
     )
   }
 
-  delete(id){
+  deleteBug(id){
     this.bugService.deleteBug(this.username,id).subscribe(
       response => {
         console.log(response)
@@ -49,5 +50,15 @@ export class MybugsComponent implements OnInit {
       }
     )
   }
+
+  updateBug(id){
+    this.router.navigate(['bugs',id])
+  }
+
+  addBug(){
+    this.router.navigate(['bugs',-1])
+  }
+
+  
 
 }

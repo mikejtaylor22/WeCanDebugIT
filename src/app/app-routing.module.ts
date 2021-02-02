@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'mybugs', component:MybugsComponent,canActivate:[RouteGuardService]},
   {path: 'newbug', component:NewbugComponent,canActivate:[RouteGuardService]},
   {path: 'allbugs', component:AllbugsComponent,canActivate:[RouteGuardService]},
-  {path: 'bug/:id', component:BugComponent,canActivate:[RouteGuardService]},
+  {path: 'bugs/:id', component:BugComponent,canActivate:[RouteGuardService]},
   {path: 'logout', component:LogoutComponent,canActivate:[RouteGuardService]},
 
   {path: '**', component:ErrorComponent}

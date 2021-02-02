@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,8 @@ import { BugComponent } from './bug/bug.component';
 import { DataService } from './data.service';
 import { HardcodedAuthenticationService } from './service/hardcoded-authentication.service';
 import { LogoutComponent } from './logout/logout.component';
+import {HttpIntercepterBasicAuthService} from './service/http/http-intercepter-basic-auth.service';
+import {BasicAuthenticationService} from './service/basic-authentication.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { LogoutComponent } from './logout/logout.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [DataService,HardcodedAuthenticationService],
+  providers: [DataService,HardcodedAuthenticationService,HttpIntercepterBasicAuthService,BasicAuthenticationService,
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

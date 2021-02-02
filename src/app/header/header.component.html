@@ -6,7 +6,7 @@
            
             <li *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="mybugs" class="nav-link">My Bugs</a></li>
             <li *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="allbugs" class="nav-link">All Bugs</a></li>
-            <li *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="newbug" class="nav-link text-warning" >Create New Bug</a></li>
+            <li *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"><button class="btn btn-outline-warning" (click)="addBug()">Add New Bug</button></li>
             
         </ul>
 

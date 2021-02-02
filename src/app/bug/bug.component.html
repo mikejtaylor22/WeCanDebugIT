@@ -1,7 +1,27 @@
-<h1>ID: {{id}}</h1>
 
-<p> Subject: {{bug.subject}}</p>
+<div class="container">
+    <h1>Bug</h1>
+    <div class="alert alert-warning" *ngIf="subject.dirty && subject.invalid ">Enter Valid Subject</div>
+    <div class="alert alert-warning" *ngIf="description.dirty && description.invalid ">Enter Valid Description</div>
+    <form (ngSubmit)="!bugForm.invalid && saveBug()" #bugForm="ngForm">
+    <fieldset class="form-group">
+        <label>Subject</label>
+        <input type="text" #subject="ngModel" [(ngModel)]="bug.subject" class="form-control" name="subject" required="required" minlength="2">
+    </fieldset>
 
-<p>Client Name: {{bug.client}}</p>
+<fieldset class="form-group">
+    <label>Description</label>
+    <input type="text" #description="ngModel" [(ngModel)]="bug.description" class="form-control" name="description" required="required" minlength="2">
+</fieldset>
 
-<p>Description: {{bug.description}}</p>
+<fieldset class="form-group">
+    <label>Target Date</label>
+    <input type="date" 
+    [ngModel]="bug.date | date:'yyyy-MM-dd' " 
+    (ngModelChange)="bug.date = $event"
+    class="form-control" name="targetDate" required="required">
+</fieldset>
+
+<button type="submit" class="btn btn-success">Save</button>
+</form>
+</div>

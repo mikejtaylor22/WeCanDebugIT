@@ -1,4 +1,4 @@
-<h1>My Bugs</h1>
+<!-- <h1>My Bugs</h1>
 <span class="alert alert-success" *ngIf="deleteMessage">{{deleteMessage}}</span>
 <div class="container">
 <table class="table">
@@ -9,8 +9,9 @@
             <th>Subject</th>
             <th>Open/Closed</th>
             <th>User</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <th>Target Date</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -20,8 +21,47 @@
             <td>{{bug.status}}</td>
             <td>{{bug.username}}</td>
             <td>{{bug.date | date}}</td>
+            <td><button class="btn btn-success" (click)="updateBug(bug.id)">Update</button></td>
             <td><button class="btn btn-warning" (click)="delete(bug.id)">Delete</button></td>
         </tr>
     </tbody>
 </table>
+
+<div class="row">
+    <button class="btn btn-success" (click)="addBug()">Add</button>
+</div>
+</div> -->
+
+<h1>My Bugs</h1>
+<span class="alert alert-success" *ngIf="deleteMessage">{{deleteMessage}}</span>
+<div class="container">
+<table class="table">
+    
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Bug ID#</th>
+            <th>Open/Closed</th>
+            <th>Target Date</th>
+            <th>User</th>
+            <th>Update</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bug of bugs">
+            <td>{{bug.subject}}</td>
+            <td>{{bug.id}}</td>
+            <td>{{bug.status}}</td>
+            <td>{{bug.date | date}}</td>
+            <td>{{bug.username}}</td>
+            <td><button class="btn btn-success" (click)="updateBug(bug.id)">Update</button></td>
+            <td><button class="btn btn-warning" (click)="deleteBug(bug.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="container">
+    <button class="btn btn-success" (click)="addBug()">Add New Bug</button>
 </div>

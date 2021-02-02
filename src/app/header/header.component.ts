@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
@@ -9,9 +10,13 @@ import { HardcodedAuthenticationService } from '../service/hardcoded-authenticat
 export class HeaderComponent implements OnInit {
   debug = '{Debug}';
 
-  constructor(public hardcodedAuthenticationService: HardcodedAuthenticationService) { }
+  constructor(public hardcodedAuthenticationService: HardcodedAuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  addBug(){
+    this.router.navigate(['bugs',-1])
   }
 
 }
